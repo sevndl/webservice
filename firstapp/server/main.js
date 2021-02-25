@@ -6,8 +6,6 @@ Meteor.startup(() => {
 });
 
 WebApp.connectHandlers.use('/api/test', (req, res, next) => {
-  // pour vérifier qu'on passe bien par ici
-  console.log('endpoint /api/test');
   res.writeHead(200);
-  res.end("response from server");
+  res.end("Nouvelle réponse changée depuis server/main.js");
 });
