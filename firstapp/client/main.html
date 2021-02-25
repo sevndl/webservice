@@ -6,12 +6,14 @@
   <h1>Première application pour comprendre le fonctionnement de meteor</h1>
 
   {{> test}}
+  <hr>
   {{> hello}}
 </body>
 
 <template name='test'>
   <p>J'attends le temps défini dans le timeout, puis la valeur suivante devra changer :</p>
   <h5>{{ testString }}</h5>
+  <button>Cliquer pour changer la valeur depuis le serveur</button>
 </template>
 
 <template name="hello">

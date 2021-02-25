@@ -24,21 +24,34 @@ Template.test.onCreated(function testOnCreated() {
   let controller = this;
   let timeout = 5000;
 
-  setTimeout(() => {
-    HTTP.call(
-      'GET',
-      'http://localhost:3000/api/test',
-      {},
-      (error, response) => { 
-        controller.testString.set(response.content);
-      }
-    );
-  }, timeout);
+  // setTimeout(() => {
+  //   HTTP.call(
+  //     'GET',
+  //     'http://localhost:3000/api/test',
+  //     {},
+  //     (error, response) => { 
+  //       controller.testString.set(response.content);
+  //     }
+  //   );
+  // }, timeout);
   this.testString = new ReactiveVar('Default value.');
 });
 
 Template.test.helpers({
   testString() {
     return Template.instance().testString.get();
+  },
+});
+
+Template.test.events({
+  'click button'(event, instance) {
+    HTTP.call(
+      'GET',
+      'http://localhost:3000/api/test',
+      {},
+      (error, response) => { 
+        instance.testString.set(response.content);
+      }
+    );
   },
 });
