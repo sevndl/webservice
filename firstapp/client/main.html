@@ -4,19 +4,14 @@
 
 <body>
   <h1>Première application pour comprendre le fonctionnement de meteor</h1>
-
-  {{> test}}
   <hr>
-  {{> hello}}
+  {{> home}}
 </body>
 
-<template name='test'>
-  <p>J'attends le temps défini dans le timeout, puis la valeur suivante devra changer :</p>
-  <h5>{{ testString }}</h5>
-  <button>Cliquer pour changer la valeur depuis le serveur</button>
-</template>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name='home'>
+  <h1>Movies list</h1>
+  {{ #each movies }}
+    <h3>{{ title }}</h3>
+    <li>{{ overview }}</li>
+  {{ /each }}
 </template>

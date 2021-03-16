@@ -1,11 +1,10 @@
 import { Meteor } from 'meteor/meteor';
-import { WebApp } from 'meteor/webapp'
+import { WebApp } from 'meteor/webapp';
+import { localDatas } from './local-data.js';
 
-Meteor.startup(() => {
-  console.log("salut les nazes");
-});
+Meteor.startup(() => {});
 
-WebApp.connectHandlers.use('/api/test', (req, res, next) => {
+WebApp.connectHandlers.use('/api/discover/movies', (req, res, next) => {
   res.writeHead(200);
-  res.end("Nouvelle réponse changée depuis server/main.js");
+  res.end(JSON.stringify(localDatas));
 });
